@@ -162,6 +162,15 @@ class GFTrello extends GFFeedAddOn {
 	protected $trello_app_key;
 
 	/**
+	 * Enabling background feed processing to prevent performance issues delaying form submission completion.
+	 *
+	 * @since 2.1
+	 *
+	 * @var bool
+	 */
+	protected $_async_feed_processing = true;
+
+	/**
 	 * Version of this add-on which requires re authentication with the API.
 	 *
 	 * Anytime updates are made to this class that requires a site to reauthenticate Gravity Forms with Trello, this
@@ -341,6 +350,12 @@ class GFTrello extends GFFeedAddOn {
 		}
 
 		$settings                   = $this->get_plugin_settings();
+
+		// Here $settings could be set to false, if so then will be converted to an array.
+		if ( ! is_array( $settings ) ) {
+			$settings = array();
+		}
+
 		$settings['authToken']      = $token;
 		$settings['reauth_version'] = self::LAST_REAUTHENTICATION_VERSION; // Set the API authentication version.
 		$this->update_plugin_settings( $settings );
@@ -570,6 +585,7 @@ class GFTrello extends GFFeedAddOn {
 			array(
 				'redirect_to' => urlencode( admin_url( 'admin.php?page=gf_settings&subview=' . $this->_slug ) ),
 				'state'       => $nonce,
+				'license'     => GFCommon::get_key(),
 			),
 			$this->get_gravity_api_url( '/auth/trello' )
 		);

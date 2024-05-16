@@ -1,7 +1,12 @@
+## 2.1.0 | 2024-05-15
+- Added Gravity Forms license key to the oAuth process.
+- Added support for async (background) feed processing to improve form submission performance.
+- Fixed an issue that causes a PHP deprecation notice to display on the Settings page when using PHP 8.1.
+
 ## 2.0 | 2021-07-07
 - Updated authentication method for enhanced security. Important: Manual re-authentication in the add-on suggested.
 - Fixed an issue where the Add-on icon is missing on the Form Settings page for Gravity Forms 2.5.
-- Deprecated old authentication method. Authentication will continue to work until removed. 
+- Deprecated old authentication method. Authentication will continue to work until removed.
 
 
 ### 1.4 | 2020-09-09

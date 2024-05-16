@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 Plugin Name: Gravity Forms Trello Add-On
 Plugin URI: https://gravityforms.com
 Description: Integrates Gravity Forms with Trello
-Version: 2.0
+Version: 2.1.0
 Author: Gravity Forms
 Author URI: https://gravityforms.com
 License: GPL-2.0+
@@ -17,7 +17,7 @@ Text Domain: gravityformstrello
 Domain Path: /languages
 
 ------------------------------------------------------------------------
-Copyright 2009-2020 Rocketgenius, Inc.
+Copyright 2009-2024 Rocketgenius, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-define( 'GF_TRELLO_VERSION', '2.0' );
+define( 'GF_TRELLO_VERSION', '2.1.0' );
 
 // If Gravity Forms is loaded, bootstrap the Trello Add-On.
 add_action( 'gform_loaded', array( 'GF_Trello_Bootstrap', 'load' ), 5 );
